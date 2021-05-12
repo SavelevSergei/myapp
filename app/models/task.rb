@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
-  validates :title, length: {maximum: 255}
-  validates :description
-  validates :datetime
+  belongs_to :user
+
+  validates :title, presence: true, length: {maximum: 255}
+  validates :description, presence: true
+  validates :datetime, presence: true
 end
