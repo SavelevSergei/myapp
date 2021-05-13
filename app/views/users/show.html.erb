@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="has-text-centered is-size-2">
+  <h1><%= @user.name %></h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <%= link_to 'Редактировать профиль', edit_user_path(@user), class: 'button is-primary' %>
+  <!--<%#= link_to 'Back', users_path %> # хз потом!!!-->
+</div>

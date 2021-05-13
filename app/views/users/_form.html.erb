@@ -1,17 +1,39 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%#= form_with(model: user) do |form| %>
+  <%# if user.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>-->
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<!--      <ul>-->
+        <%# user.errors.each do |error| %>
+<!--          <li><%#= error.full_message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+<%# end %>
+
+<%= form_for @user do |f| %>
+
+  <div class="field">
+    <%= f.label :name, class: 'label' %>
+    <div class="control">
+      <%= f.text_field :name, class: 'input' %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
+
+  <div class="field">
+    <%= f.label :email, class: 'label' %>
+    <div class="control">
+      <%= f.text_field :email, class: 'input' %>
+    </div>
+  </div>
+
+  <%= f.submit 'Сохранить', class: 'button is-primary'%>
+  <%= link_to 'Вернуться', :back, class: 'button is-primary' %>
+
 <% end %>
+
