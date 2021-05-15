@@ -1,28 +1,24 @@
 
 <h1 class="is-size-2">Задачи</h1>
 
-<div>
-  <%# Рендерим сразу массив событий, каждый в паршиале 'tasks/task' %>
-  <%= render partial: 'tasks/task', collection: @tasks %>
-</div>
-
 <%= link_to 'Новая задача', new_task_path, class: 'button is-primary' %>
 
-<!--<table>-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th colspan="3"></th>-->
-<!--    </tr>-->
-<!--  </thead>-->
 
-<!--  <tbody>-->
-    <%# @tasks.each do |task| %>
-<!--      <tr>-->
-<!--        <td><%#= link_to 'Show', task %></td>-->
-<!--        <td><%#= link_to 'Edit', edit_task_path(task) %></td>-->
-<!--        <td><%#= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-<!--      </tr>-->
-    <%# end %>
-<!--  </tbody>-->
-<!--</table>-->
-
+<table class="table">
+  <thead>
+  <tr>
+    <th><abbr title="Number">Num</abbr></th>
+    <th>Author</th>
+    <th>Title</th>
+  </tr>
+  </thead>
+  <% @tasks.each do |t| %>
+  <tbody>
+    <tr>
+      <th><%= t.id %></th>
+      <th><%= t.user.name %></th>
+      <th><%= t.title %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
