@@ -13,7 +13,15 @@
 
   <body>
     <div class="container">
+      <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <p class="is-size-4"><%= link_to "My APP", root_path %></p>
+          </div>
+        </div>
+      </nav>
       <%= yield %>
     </div>
+
   </body>
 </html>
