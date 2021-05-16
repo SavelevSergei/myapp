@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p class="is-size-4">Author: <%= @task.user.name %></p>
+  <p class="is-size-4">Date of completion: <%= @task.datetime.strftime('%d-%m-%Y') %></p>
+  <p class="is-size-4">Title: <%= @task.title %></p>
+  <p class="is-size-4">Description: <%= @task.description %></p>
+</div>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_task_path(@task), class: 'button is-primary'%>
+<%= link_to 'Back', tasks_path, class: 'button is-primary' %>

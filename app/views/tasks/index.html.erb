@@ -16,11 +16,11 @@
   <% @tasks.each do |t| %>
   <tbody>
     <tr>
-      <th><%= t.id %></th>
+      <th><%= link_to t.id, task_path(t) %></th>
       <th><%= t.user.name %></th>
       <th><%= t.title %></th>
       <th><%= t.description %></th>
-      <th><%= t.datetime %></th>
+      <th><%= t.datetime.strftime('%d-%m-%Y') %></th>
     </tr>
     <% end %>
   </tbody>
