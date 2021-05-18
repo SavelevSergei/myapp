@@ -14,10 +14,29 @@
   <body>
     <div class="container">
       <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-menu">
           <div class="navbar-start">
             <p class="is-size-4"><%= link_to "My APP", root_path %></p>
           </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+
+              <% if user_signed_in? %>
+                <div class="buttons">
+                  <%= link_to 'Профиль', current_user, class: 'button is-primary' %>
+                  <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'button is-danger' %>
+                </div>
+              <% else %>
+                <div class="buttons">
+                  <%= link_to 'Войти', new_user_session_path, class: 'button is-primary' %>
+                  <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'button is-primary' %>
+                </div>
+              <% end %>
+
+            </div>
+          </div>
+
         </div>
       </nav>
       <%= yield %>
