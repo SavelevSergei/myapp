@@ -12,43 +12,47 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <p class="is-size-4"><%= link_to "My APP", root_path %></p>
-          </div>
+    <div id="wrapper">
 
-          <div class="navbar-end">
-            <div class="navbar-item">
+      <section class="">
+        <div class="container main-content">
+          <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+            <div class="navbar-menu">
+              <div class="navbar-start">
+                <p class="is-size-4"><%= link_to "My APP", root_path %></p>
+              </div>
 
-              <% if user_signed_in? %>
-                <div class="buttons">
-                  <%= link_to 'Профиль', current_user, class: 'button is-primary' %>
-                  <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'button is-danger' %>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  
+                  <% if user_signed_in? %>
+                    <div class="buttons">
+                      <div class="user-name">
+                        <%= link_to current_user.name, current_user %>
+                      </div>
+                      <%#= link_to 'Профиль', current_user, class: 'button is-primary' %>
+                      <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'button is-danger' %>
+                    </div>
+                  <% else %>
+                    <div class="buttons">
+                      <%= link_to 'Войти', new_user_session_path, class: 'button is-primary' %>
+                      <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'button is-primary' %>
+                    </div>
+                  <% end %>
+
                 </div>
-              <% else %>
-                <div class="buttons">
-                  <%= link_to 'Войти', new_user_session_path, class: 'button is-primary' %>
-                  <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'button is-primary' %>
-                </div>
-              <% end %>
-
+              </div>
             </div>
-          </div>
-
+          </nav>
+          <%= yield %>
         </div>
-      </nav>
-      <%= yield %>
+      </section>
     </div>
+    <footer class="hero-foot">
+      <div class="content has-text-centered">
+        <strong>GitHub Page</strong> <a href="https://github.com/SavelevSergei">SavelevSergei</a>
+      </div>
+    </footer>
+
   </body>
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
-    </div>
-  </footer>
 </html>
