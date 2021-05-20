@@ -3,4 +3,17 @@
 
   <%= link_to 'Редактировать профиль', edit_user_path(@user), class: 'button is-primary' %>
   <!--<%#= link_to 'Back', users_path %> # хз потом!!!-->
+
+  <div class="">
+    <div class="">
+      <% if @user.tasks.any? %>
+        <h3>Создал:</h3>
+        <div class="">
+          <%= render partial: 'tasks/task' %>
+        </div>
+      <% else %>
+        <p class="">Пользователь пока не создал ни одной записи</p>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,24 @@
+<div class="columns is-size-4">
+  <table class="table">
+    <thead>
+    <tr>
+      <th><abbr title="Number">Num</abbr></th>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Date of completion</th>
+    </tr>
+    </thead>
+    <% current_user.tasks.each do |t| %>
+      <tbody>
+      <tr>
+        <th><%= link_to t.id, task_path(t) %></th>
+        <th><%= t.user.name %></th>
+        <th><%= t.title %></th>
+        <th><%= t.description %></th>
+        <th><%= t.datetime.strftime('%d-%m-%Y') %></th>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

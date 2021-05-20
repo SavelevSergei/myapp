@@ -1,5 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+
+  before_action :set_task, only: [:show]
+  before_action :set_current_user_task, only: [:edit, :update, :destroy]
 
   # GET /tasks
   def index
@@ -13,7 +16,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = current_user.tasks.build
   end
 
   # GET /tasks/1/edit
@@ -22,7 +25,7 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
@@ -48,6 +51,10 @@ class TasksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_current_user_task
+      @task = current_user.tasks.find(params[:id])
+    end
+
     def set_task
       @task = Task.find(params[:id])
     end
