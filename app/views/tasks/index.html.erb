@@ -1,7 +1,11 @@
-<h1 class="is-size-2">Создать новую задачу</h1>
+<div class="indent-up">
+  <%= render partial: 'tasks/task' %>
+</div>
 
-<%= link_to 'Новая задача', new_task_path, class: 'button is-primary' %>
-
+<div class="indent-up">
+  <h1 class="is-size-2">Создать новую задачу</h1>
+  <%= link_to 'Новая задача', new_task_path, class: 'button is-primary' %>
+</div>
 
 <!--<table class="table">-->
 <!--  <thead>-->

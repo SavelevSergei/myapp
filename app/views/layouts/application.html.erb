@@ -19,7 +19,7 @@
           <nav class="navbar is-light" role="navigation" aria-label="main navigation">
             <div class="navbar-menu">
               <div class="navbar-start">
-                <p class="is-size-4"><%= link_to "My APP", root_path %></p>
+                <p class="is-size-4"><%= link_to t('myapp'), root_path %></p>
               </div>
 
               <div class="navbar-end">
@@ -44,6 +44,14 @@
               </div>
             </div>
           </nav>
+
+          <% if notice %>
+            <div class="notification is-primary notice indent-up"><%= notice %></div>
+          <% end %>
+
+          <% if alert %>
+            <div class="notification is-primary is-danger indent-up"><%= alert %></div>
+          <% end %>
           <%= yield %>
         </div>
       </section>

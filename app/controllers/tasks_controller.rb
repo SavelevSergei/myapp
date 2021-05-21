@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!
 
   before_action :set_task, only: [:show]
   before_action :set_current_user_task, only: [:edit, :update, :destroy]
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   # GET /tasks/1
