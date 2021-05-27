@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#wrapper {
+  flex: 1;
+}
+
+.user-name {
+  margin-right: 10px;
+}
+
+.indent-up {
+  margin-top: 10px;
+}
+
+.priority-1 {color: #009090}
+.priority {color: #c09000;}
+.priority-3 {color: #c00000;}
+.completed-true {color: #c0c0c0; text-decoration: line-through}

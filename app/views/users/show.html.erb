@@ -9,10 +9,10 @@
       <% if @user.tasks.any? %>
         <h3>Создал:</h3>
         <div class="">
-          <%= render partial: 'tasks/task' %>
+          <%= render partial: 'tasks/tasks' %>
         </div>
       <% else %>
-        <p class="">Пользователь пока не создал ни одной записи</p>
+        <p class="">User has not created any posts yet</p>
       <% end %>
     </div>
   </div>

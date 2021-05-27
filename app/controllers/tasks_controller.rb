@@ -6,7 +6,10 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = current_user.tasks
+    # @tasks = current_user.tasks
+    # @completed_tasks = current_user.tasks
+    @tasks = Task.where(completed: false)
+    @completed_tasks = Task.where(completed: true)
   end
 
   # GET /tasks/1
@@ -43,8 +46,17 @@ class TasksController < ApplicationController
     end
   end
 
+  # def complete
+  #   @task = current_user.tasks.find(params[:id])
+  #
+  #   @task.complete!
+  #   redirect_to edit_task_url
+  # end
+
   # DELETE /tasks/1
   def destroy
+    @task = current_user.tasks.find(params[:id])
+
     @task.destroy
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
   end
@@ -61,6 +73,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :datetime)
+      params.require(:task).permit(:title, :description, :datetime, :priority, :completed)
     end
 end

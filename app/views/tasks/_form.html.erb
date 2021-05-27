@@ -36,6 +36,27 @@
     </div>
   </div>
 
+<!--  <div class="field">-->
+    <%#= t.select :priority, Task::PRIORITIES %>
+<!--    <div class="control">-->
+      <%#= t.text_field :priority, class: 'select' %>
+<!--    </div>-->
+<!--  </div>-->
+
+  <div class="field">
+    <%= t.label :priority, class: 'label' %>
+      <div class="control">
+        <%= t.select :priority, Task::PRIORITIES %>
+      </div>
+  </div>
+
+  <div class="field">
+    <%= t.label :completed, class: 'checkbox' %>
+    <div class="control">
+      <%= t.check_box :completed, class: 'checkbox' %>
+    </div>
+  </div>
+
   <%= t.submit 'Save', class: 'button is-primary'%>
   <%= link_to 'Back', :back, class: 'button is-primary' %>
 
